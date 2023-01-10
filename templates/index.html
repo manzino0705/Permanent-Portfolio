@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Portfolio Rebalancing<sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>DashBoard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Stocks
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/stocks">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Profits</span>
+                </a>
+            
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/tables" >
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>자산 추가</span>
+                </a>
+                
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="/static/img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>Peter Lynch</strong> <br> 
+                    무엇을 소유하고 있는지, 왜 그것을 소유하고 있는지 알아라 ! </p>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle btn" href="/tables" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">MinJi Kim</span>
+                                <img class="img-profile rounded-circle"
+                                    src="/static/img/undraw_profile_1.svg">
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Total Asset : {{total}}원 </h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    
+                    
+                    <div class="row">
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Stocks </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{account['stock'][0]}}원</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Bond </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{account['bond'][0]}}원</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Gold </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{account['gold'][0]}}원</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Cash </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{account['cash'][0]}}원</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Rebalancing Required</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <h3 class="small font-weight-bold text-dark float:left">  </h3>
+                                    <h4 class="small font-weight-bold">Stock <span
+                                            class="float-right">{{cal_ratio['stock']}}%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{cal_ratio['stock']}}%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Bond <span
+                                            class="float-right">{{cal_ratio['bond']}}%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{cal_ratio['bond']}}%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Gold <span
+                                            class="float-right">{{cal_ratio['gold']}}%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{cal_ratio['gold']}}%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Cash <span
+                                            class="float-right">{{cal_ratio['cash']}}%</span></h4>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{cal_ratio['cash']}}%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Now Portfolio Rate</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Stock
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Bond
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Gold
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-warning"></i> Cash
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Finance Business 101</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="static/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="static/js/demo/chart-area-demo.js"></script>
+    <script>
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ["Stock", "Bond", "Gold", "Cash"],
+            datasets: [{
+              data: [{{account['stock'][2]}},{{account['bond'][2]}},{{account['gold'][2]}},{{account['cash'][2]}}], 
+              backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#f6c23e'],
+              // hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#17a673'],
+              hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+          },
+          options: {
+            maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+            },
+            legend: {
+              display: false
+            },
+            cutoutPercentage: 80,
+          },
+                });
+    </script>
+
+</body>
+
+</html>
